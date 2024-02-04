@@ -14,20 +14,19 @@ import jakarta.persistence.Table;
 import jakarta.transaction.Transaction;
 import jakarta.validation.constraints.NotNull;
 
-@Entity
-@Table(name = "tb_person")
+//@Entity
+//@Table(name = "tb_person")
 public class Person {
 	
-	@UUID
+//	@UUID
 	private String id;
 
-	@NotNull(message = "O Atributo Nome é Obrigatório!")
 	private String name;
 
 	private Integer age;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("person")
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "person", cascade = CascadeType.REMOVE)
+//	@JsonIgnoreProperties("person")
 	private List<Transaction> transaction;
 
 	public String getId() {
