@@ -65,7 +65,7 @@ Para mais informações sobre o RabbitMQ, consulte a documentação oficial: htt
 
 #### Agradecimentos:
 
-*Agradecemos a todos que contribuíram para este projeto.*
+Agradecemos a Kevin Oliveira, Kaellen Oliveira, Matheus Julio, Pedro Viana, Vinicius Santos.
 
 *✉️ Contato:*
 
