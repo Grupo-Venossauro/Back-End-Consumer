@@ -15,11 +15,11 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-//@Entity
-//@Table(name = "tb_transaction")
+@Entity
+@Table(name = "tb_transaction")
 public class Transaction {
 	
-//	@UUID
+	@UUID
 	private String id;
 	
 	
@@ -28,12 +28,12 @@ public class Transaction {
 	
 	private BigDecimal amount;
 	
-//	@ManyToOne
-//	@JsonIgnoreProperties("transaction")
+	@ManyToOne
+	@JsonIgnoreProperties("transaction")
 	private Person person;
 	
-//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "transaction", cascade = CascadeType.REMOVE)
-//	@JsonIgnoreProperties("transaction")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "transaction", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("transaction")
 	private List<Installment> installment;
 
 	public String getId() {

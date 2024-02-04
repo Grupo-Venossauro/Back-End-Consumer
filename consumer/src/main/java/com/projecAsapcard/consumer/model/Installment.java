@@ -2,10 +2,6 @@ package com.projecAsapcard.consumer.model;
 
 import java.math.BigDecimal;
 
-import org.hibernate.validator.constraints.UUID;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,54 +9,61 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-//@Entity
-//@Table(name = "tb_installment")
+@Entity
+@Table(name = "tb_installment")
 public class Installment {
-	
-//	@Id
-//    @GeneratedValue(strategy = GenerationType.AUTO) 
-	private String id;
-	
-	private Integer installment_number;
-	
-//	@ManyToOne
-//	@JsonIgnoreProperties("installment")
-	private Transaction transaction;
-	
-	private BigDecimal value;
 
-	public BigDecimal getValue() {
-		return value;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public void setValue(BigDecimal value) {
-		this.value = value;
-	}
+    private Integer installmentNumber;
 
-	public String getId() {
-		return id;
-	}
+    @ManyToOne
+    private Transaction transaction;
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    private BigDecimal value;
 
-	public Integer getInstallment_number() {
-		return installment_number;
-	}
+    public Installment() {
+    }
 
-	public void setInstallment_number(Integer installment_number) {
-		this.installment_number = installment_number;
-	}
+    public static Installment map(DataDTO dataDTO) {
+        Installment installment = new Installment();
+        installment.setInstallmentNumber(dataDTO.getQtdInstallment().intValue());
+        installment.setValue(BigDecimal.valueOf(dataDTO.getAmount()));
+        return installment;
+    }
 
-	public Transaction getTransaction() {
-		return transaction;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
-	}
-	
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public Integer getInstallmentNumber() {
+        return installmentNumber;
+    }
+
+    public void setInstallmentNumber(Integer installmentNumber) {
+        this.installmentNumber = installmentNumber;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
+
+    public BigDecimal getValue() {
+        return value;
+    }
+
+    public void setValue(BigDecimal value) {
+        this.value = value;
+    }
 
 }
