@@ -26,7 +26,7 @@ public class Transaction {
 	private LocalDateTime transaction_date = LocalDateTime.now();
 	
 	
-	private BigDecimal amount;
+	private Double amount;
 	
 //	@ManyToOne
 //	@JsonIgnoreProperties("transaction")
@@ -52,11 +52,11 @@ public class Transaction {
 		this.transaction_date = transaction_date;
 	}
 
-	public BigDecimal getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 

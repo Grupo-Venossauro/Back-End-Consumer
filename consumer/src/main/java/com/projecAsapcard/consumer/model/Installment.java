@@ -27,13 +27,13 @@ public class Installment {
 //	@JsonIgnoreProperties("installment")
 	private Transaction transaction;
 	
-	private BigDecimal value;
+	private Double value;
 
-	public BigDecimal getValue() {
+	public Double getValue() {
 		return value;
 	}
 
-	public void setValue(BigDecimal value) {
+	public void setValue(Double value) {
 		this.value = value;
 	}
 
